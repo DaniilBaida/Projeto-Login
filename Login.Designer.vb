@@ -52,7 +52,6 @@ Partial Class Login
         Me.textUser.Name = "textUser"
         Me.textUser.Size = New System.Drawing.Size(145, 17)
         Me.textUser.TabIndex = 1
-        Me.textUser.Text = "username"
         Me.textUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'textPassword
@@ -64,7 +63,6 @@ Partial Class Login
         Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.textPassword.Size = New System.Drawing.Size(145, 17)
         Me.textPassword.TabIndex = 2
-        Me.textPassword.Text = "password"
         Me.textPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'PictureBox1
