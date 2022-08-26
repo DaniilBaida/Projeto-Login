@@ -4,25 +4,61 @@ Imports MySql.Data.MySqlClient
 Public Class Login
     Public sqlConnection As MySqlConnection
     Public command As MySqlCommand
-    Public da As MySqlDataAdapter
+
     Public dr As MySqlDataReader
 
-    Private strSQL As String
+
+    Public user As String
+    Public password As String
+    Public userSqlSelect As String
+    Public passwordSqlSelect As String
 
 
-    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+
+    Public Sub checkUserLogin()
         Try
-            sqlConnection = New MySqlConnection("Server=localhost;Database=projLogin;Uid=root;Pwd=91984;")
+            sqlConnection = New MySqlConnection("Server=localhost;Database=projlogin;Uid=root;Pwd=91984;")
+
+            userSqlSelect = "SELECT * FROM user WHERE username = @username"
+            passwordSqlSelect = "SELECT * FROM user WHERE password = @password"
+
+
+
+            command = New MySqlCommand(userSqlSelect, sqlConnection)
+            command = New MySqlCommand(passwordSqlSelect, sqlConnection)
+            command.Parameters.AddWithValue("@username", textUser.Text)
+            command.Parameters.AddWithValue("@password", textPassword.Text)
             sqlConnection.Open()
+
+            dr = command.ExecuteReader()
+
+            Do While dr.Read
+                user = dr("username")
+                password = dr("password")
+
+            Loop
 
         Catch ex As Exception
             MsgBox(ex.Message)
+            Application.Exit()
         Finally
             sqlConnection.Close()
             sqlConnection = Nothing
             command = Nothing
-            Application.Exit()
         End Try
+
+        If textUser.Text = user Then
+            If textPassword.Text = password Then
+                Hide()
+                Dashboard.Show()
+            End If
+        End If
+    End Sub
+
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles exitButton.Click
@@ -41,9 +77,7 @@ Public Class Login
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles loginButton.Click
-        If textPassword.Text = 123 & textUser.Text = 123 Then
-            Hide()
-            Dashboard.Show()
-        End If
+        checkUserLogin()
+
     End Sub
 End Class

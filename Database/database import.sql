@@ -1,6 +1,6 @@
- DROP DATABASE IF EXISTS projLogin;
- CREATE DATABASE projLogin;
- use projLogin; 
+ DROP DATABASE IF EXISTS projlogin;
+ CREATE DATABASE projlogin;
+ use projlogin; 
  
  DROP TABLE IF EXISTS user;
  CREATE TABLE if not exists user(
@@ -14,4 +14,5 @@
 INSERT INTO user(username,password,usertype)
 VALUES("ADMIN","ADMIN","ADMIN");
  
+ SELECT * FROM user;
  
