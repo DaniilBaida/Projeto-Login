@@ -27,10 +27,10 @@ Partial Class Login
         Me.textUser = New System.Windows.Forms.TextBox()
         Me.textPassword = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.loginButton = New System.Windows.Forms.PictureBox()
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.loginButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'exitButton
@@ -78,16 +78,16 @@ Partial Class Login
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
-        'PictureBox2
+        'loginButton
         '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.Projeto_Login.My.Resources.Resources.login
-        Me.PictureBox2.Location = New System.Drawing.Point(152, 389)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(137, 47)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox2.TabIndex = 4
-        Me.PictureBox2.TabStop = False
+        Me.loginButton.BackColor = System.Drawing.Color.Transparent
+        Me.loginButton.Image = Global.Projeto_Login.My.Resources.Resources.login
+        Me.loginButton.Location = New System.Drawing.Point(148, 389)
+        Me.loginButton.Name = "loginButton"
+        Me.loginButton.Size = New System.Drawing.Size(137, 47)
+        Me.loginButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.loginButton.TabIndex = 4
+        Me.loginButton.TabStop = False
         '
         'Login
         '
@@ -95,7 +95,7 @@ Partial Class Login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Projeto_Login.My.Resources.Resources.backgroundMain
         Me.ClientSize = New System.Drawing.Size(440, 470)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.loginButton)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.textPassword)
         Me.Controls.Add(Me.textUser)
@@ -106,7 +106,7 @@ Partial Class Login
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.loginButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -116,5 +116,5 @@ Partial Class Login
     Friend WithEvents textUser As TextBox
     Friend WithEvents textPassword As TextBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents loginButton As PictureBox
 End Class
