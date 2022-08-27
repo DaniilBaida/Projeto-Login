@@ -5,22 +5,49 @@ Public Class Login
     Public sqlConnection As MySqlConnection
     Public command As MySqlCommand
     Public dr As MySqlDataReader
+    Public da As MySqlDataAdapter
     Public user As String
     Public password As String
+    Public usertype As String
     Public sqlString1 As String
-    Public sqlString2 As String
+
+    Sub grelha()
+        Try
+            sqlConnection = New MySqlConnection("Server=localhost;Database=projlogin;Uid=root;Pwd=91984;")
+            sqlString1 = "Select *  from cars"
+
+            Dim dt As New DataTable
+            da = New MySqlDataAdapter(sqlString1, sqlConnection)
+            da.Fill(dt)
+            Dashboard.dataCars.DataSource = dt
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            sqlConnection.Close()
+            sqlConnection = Nothing
+            sqlConnection = Nothing
+        End Try
+    End Sub
+
+    Sub resetInput()
+        textUser.Text = ""
+        textPassword.Text = ""
+        textUser.Focus()
+    End Sub
 
 
-    Public Sub checkUserLogin()
+
+    Public Sub userLogin()
         Try
             sqlConnection = New MySqlConnection("Server=localhost;Database=projlogin;Uid=root;Pwd=91984;")
 
-            sqlString1 = "SELECT * FROM user WHERE username = @username"
-            sqlString2 = "SELECT * FROM user WHERE password = @password"
+            sqlString1 = "SELECT * FROM user WHERE username = @username and password = @password LIMIT 1"
+
 
 
             command = New MySqlCommand(sqlString1, sqlConnection)
-            command = New MySqlCommand(sqlString2, sqlConnection)
+
             command.Parameters.AddWithValue("@username", textUser.Text)
             command.Parameters.AddWithValue("@password", textPassword.Text)
             sqlConnection.Open()
@@ -30,6 +57,7 @@ Public Class Login
             Do While dr.Read
                 user = dr("username")
                 password = dr("password")
+                usertype = dr("usertype")
             Loop
 
         Catch ex As Exception
@@ -69,16 +97,22 @@ Public Class Login
                 Hide()
                 MessageBox.Show("LOGIN SUCCESSFULL", "AUTHENTICATION", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Dashboard.Show()
+                grelha()
+                If usertype = "ADMIN" Then
+                    Dashboard.adminButton.Visible = "True"
+                Else
+                    Dashboard.adminButton.Visible = "False"
+                End If
             Else
                 MessageBox.Show("WRONG USER/PASSWORD", "AUTHENTICATION", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                textUser.Text = ""
-                textUser.Focus()
-                textPassword.Text = ""
+                resetInput()
+
             End If
         End If
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles exitButton.Click
@@ -97,6 +131,6 @@ Public Class Login
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles loginButton.Click
-        checkUserLogin()
+        userLogin()
     End Sub
 End Class

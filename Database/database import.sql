@@ -19,11 +19,20 @@ USE projlogin;
  date datetime
 );
 
+ DROP TABLE IF EXISTS cars;
+ CREATE TABLE if not exists cars(
+ id bigint auto_increment primary key,
+ model varchar(50),
+ brand varchar(50),
+ price int
+);
+
 INSERT INTO user(username,password,usertype)
-VALUES("ADMIN","ADMIN","ADMIN"),
-("123","123","GUEST");
+VALUES("1","1","ADMIN"),
+("2","2","GUEST");
 
-
+INSERT INTO cars(model,brand,price)
+VALUES("TESLA","X",20000);
  
  
  select * From user;
