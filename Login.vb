@@ -11,6 +11,7 @@ Public Class Login
     Public usertype As String
     Public sqlString1 As String
     Dim picture As Resources.ResourceManager
+    Dim a As Integer
 
 
 
@@ -118,7 +119,17 @@ Public Class Login
         userLogin()
     End Sub
 
-    Private Sub PictureBox2_Click_1(sender As Object, e As EventArgs) Handles imgEye.Click
-        imgEye.Image = picture.GetObject("invisible")
+    Private Sub imgEye_Click(sender As Object, e As EventArgs) Handles imgEye.Click
+
+        a += 1
+
+
+        If a Mod 2 = 0 Then
+            imgEye.Image = picture.GetObject("invisible")
+            textPassword.PasswordChar = ""
+        Else
+            imgEye.Image = picture.GetObject("view")
+            textPassword.PasswordChar = "*"
+        End If
     End Sub
 End Class
