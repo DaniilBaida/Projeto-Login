@@ -84,9 +84,9 @@ Public Class Login
                 Dashboard.Show()
 
                 If usertype = "ADMIN" Then
-                    Dashboard.adminButton.Visible = "True"
+                    Dashboard.userLogo.Visible = "True"
                 Else
-                    Dashboard.adminButton.Visible = "False"
+                    Dashboard.userLogo.Visible = "False"
                 End If
             Else
                 MessageBox.Show("WRONG USER/PASSWORD", "AUTHENTICATION", MessageBoxButtons.OK, MessageBoxIcon.Error)

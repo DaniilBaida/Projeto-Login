@@ -36,11 +36,13 @@ Partial Class Dashboard
         Me.showCarsButton = New System.Windows.Forms.PictureBox()
         Me.priceButton = New System.Windows.Forms.PictureBox()
         Me.idButton = New System.Windows.Forms.PictureBox()
-        Me.adminButton = New System.Windows.Forms.PictureBox()
+        Me.userLogo = New System.Windows.Forms.PictureBox()
         Me.textModel = New System.Windows.Forms.TextBox()
         Me.textBrand = New System.Windows.Forms.TextBox()
         Me.textID = New System.Windows.Forms.TextBox()
         Me.textPrice = New System.Windows.Forms.TextBox()
+        Me.userIdentifier = New System.Windows.Forms.Label()
+        Me.adminButton = New System.Windows.Forms.PictureBox()
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.backButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dataCars, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,6 +51,7 @@ Partial Class Dashboard
         CType(Me.showCarsButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.priceButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.idButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.userLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.adminButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -176,17 +179,17 @@ Partial Class Dashboard
         Me.idButton.TabIndex = 8
         Me.idButton.TabStop = False
         '
-        'adminButton
+        'userLogo
         '
-        Me.adminButton.BackColor = System.Drawing.Color.Transparent
-        Me.adminButton.Image = Global.Projeto_Login.My.Resources.Resources.user
-        Me.adminButton.Location = New System.Drawing.Point(765, 2)
-        Me.adminButton.Name = "adminButton"
-        Me.adminButton.Size = New System.Drawing.Size(63, 68)
-        Me.adminButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.adminButton.TabIndex = 9
-        Me.adminButton.TabStop = False
-        Me.adminButton.Visible = False
+        Me.userLogo.BackColor = System.Drawing.Color.Transparent
+        Me.userLogo.Image = Global.Projeto_Login.My.Resources.Resources.user
+        Me.userLogo.Location = New System.Drawing.Point(57, 22)
+        Me.userLogo.Name = "userLogo"
+        Me.userLogo.Size = New System.Drawing.Size(28, 26)
+        Me.userLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.userLogo.TabIndex = 9
+        Me.userLogo.TabStop = False
+        Me.userLogo.Visible = False
         '
         'textModel
         '
@@ -228,18 +231,43 @@ Partial Class Dashboard
         Me.textPrice.TabIndex = 13
         Me.textPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'userIdentifier
+        '
+        Me.userIdentifier.AutoSize = True
+        Me.userIdentifier.BackColor = System.Drawing.Color.Transparent
+        Me.userIdentifier.Font = New System.Drawing.Font("Phonk Regular DEMO", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.userIdentifier.ForeColor = System.Drawing.Color.White
+        Me.userIdentifier.Location = New System.Drawing.Point(79, 28)
+        Me.userIdentifier.Name = "userIdentifier"
+        Me.userIdentifier.Size = New System.Drawing.Size(76, 14)
+        Me.userIdentifier.TabIndex = 15
+        Me.userIdentifier.Text = "EXAMPLE"
+        '
+        'adminButton
+        '
+        Me.adminButton.BackColor = System.Drawing.Color.Transparent
+        Me.adminButton.Image = Global.Projeto_Login.My.Resources.Resources.settings
+        Me.adminButton.Location = New System.Drawing.Point(762, 1)
+        Me.adminButton.Name = "adminButton"
+        Me.adminButton.Size = New System.Drawing.Size(70, 69)
+        Me.adminButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.adminButton.TabIndex = 16
+        Me.adminButton.TabStop = False
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Projeto_Login.My.Resources.Resources.dashboard
         Me.ClientSize = New System.Drawing.Size(900, 506)
+        Me.Controls.Add(Me.adminButton)
+        Me.Controls.Add(Me.userIdentifier)
         Me.Controls.Add(Me.textPrice)
         Me.Controls.Add(Me.textID)
         Me.Controls.Add(Me.textBrand)
         Me.Controls.Add(Me.textModel)
         Me.Controls.Add(Me.exitButton)
-        Me.Controls.Add(Me.adminButton)
+        Me.Controls.Add(Me.userLogo)
         Me.Controls.Add(Me.dataCars)
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.showCarsButton)
@@ -260,6 +288,7 @@ Partial Class Dashboard
         CType(Me.showCarsButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.priceButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.idButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.userLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.adminButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -274,9 +303,11 @@ Partial Class Dashboard
     Friend WithEvents showCarsButton As PictureBox
     Friend WithEvents priceButton As PictureBox
     Friend WithEvents idButton As PictureBox
-    Friend WithEvents adminButton As PictureBox
+    Friend WithEvents userLogo As PictureBox
     Friend WithEvents textModel As TextBox
     Friend WithEvents textBrand As TextBox
     Friend WithEvents textID As TextBox
     Friend WithEvents textPrice As TextBox
+    Friend WithEvents userIdentifier As Label
+    Friend WithEvents adminButton As PictureBox
 End Class

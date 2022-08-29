@@ -42,16 +42,19 @@ Public Class Dashboard
         Application.Exit()
     End Sub
 
-    Private Sub adminButton_Click(sender As Object, e As EventArgs) Handles adminButton.Click
-        Hide()
-        Admin.Show()
-    End Sub
+
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dataCars.BackgroundColor = Color.FromArgb(0, 142, 204)
+        userIdentifier.Text = Login.textUser.Text
     End Sub
 
     Private Sub showCarsButton_Click(sender As Object, e As EventArgs) Handles showCarsButton.Click
         Model()
+    End Sub
+
+    Private Sub adminButton_Click_1(sender As Object, e As EventArgs) Handles adminButton.Click
+        Hide()
+        Admin.Show()
     End Sub
 End Class
