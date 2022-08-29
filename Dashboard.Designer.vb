@@ -37,10 +37,10 @@ Partial Class Dashboard
         Me.priceButton = New System.Windows.Forms.PictureBox()
         Me.idButton = New System.Windows.Forms.PictureBox()
         Me.adminButton = New System.Windows.Forms.PictureBox()
-        Me.textUser = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.textModel = New System.Windows.Forms.TextBox()
+        Me.textBrand = New System.Windows.Forms.TextBox()
+        Me.textID = New System.Windows.Forms.TextBox()
+        Me.textPrice = New System.Windows.Forms.TextBox()
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.backButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dataCars, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,7 +56,7 @@ Partial Class Dashboard
         '
         Me.exitButton.BackColor = System.Drawing.Color.Transparent
         Me.exitButton.Image = Global.Projeto_Login.My.Resources.Resources.powerButton
-        Me.exitButton.Location = New System.Drawing.Point(818, 12)
+        Me.exitButton.Location = New System.Drawing.Point(829, 1)
         Me.exitButton.Name = "exitButton"
         Me.exitButton.Size = New System.Drawing.Size(70, 69)
         Me.exitButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -67,7 +67,7 @@ Partial Class Dashboard
         '
         Me.backButton.BackColor = System.Drawing.Color.Transparent
         Me.backButton.Image = Global.Projeto_Login.My.Resources.Resources.back
-        Me.backButton.Location = New System.Drawing.Point(12, 12)
+        Me.backButton.Location = New System.Drawing.Point(1, 1)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(69, 69)
         Me.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -180,7 +180,7 @@ Partial Class Dashboard
         '
         Me.adminButton.BackColor = System.Drawing.Color.Transparent
         Me.adminButton.Image = Global.Projeto_Login.My.Resources.Resources.user
-        Me.adminButton.Location = New System.Drawing.Point(756, 13)
+        Me.adminButton.Location = New System.Drawing.Point(765, 2)
         Me.adminButton.Name = "adminButton"
         Me.adminButton.Size = New System.Drawing.Size(63, 68)
         Me.adminButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -188,45 +188,45 @@ Partial Class Dashboard
         Me.adminButton.TabStop = False
         Me.adminButton.Visible = False
         '
-        'textUser
+        'textModel
         '
-        Me.textUser.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.textUser.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.textUser.Location = New System.Drawing.Point(108, 136)
-        Me.textUser.Name = "textUser"
-        Me.textUser.Size = New System.Drawing.Size(88, 17)
-        Me.textUser.TabIndex = 10
-        Me.textUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.textModel.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.textModel.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
+        Me.textModel.Location = New System.Drawing.Point(108, 136)
+        Me.textModel.Name = "textModel"
+        Me.textModel.Size = New System.Drawing.Size(88, 17)
+        Me.textModel.TabIndex = 10
+        Me.textModel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox1
+        'textBrand
         '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox1.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(226, 124)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(88, 17)
-        Me.TextBox1.TabIndex = 11
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.textBrand.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.textBrand.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
+        Me.textBrand.Location = New System.Drawing.Point(226, 124)
+        Me.textBrand.Name = "textBrand"
+        Me.textBrand.Size = New System.Drawing.Size(88, 17)
+        Me.textBrand.TabIndex = 11
+        Me.textBrand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox2
+        'textID
         '
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox2.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.TextBox2.Location = New System.Drawing.Point(586, 124)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(88, 17)
-        Me.TextBox2.TabIndex = 12
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.textID.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.textID.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
+        Me.textID.Location = New System.Drawing.Point(586, 124)
+        Me.textID.Name = "textID"
+        Me.textID.Size = New System.Drawing.Size(88, 17)
+        Me.textID.TabIndex = 12
+        Me.textID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox3
+        'textPrice
         '
-        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox3.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.TextBox3.Location = New System.Drawing.Point(703, 136)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(88, 17)
-        Me.TextBox3.TabIndex = 13
-        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.textPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.textPrice.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
+        Me.textPrice.Location = New System.Drawing.Point(703, 136)
+        Me.textPrice.Name = "textPrice"
+        Me.textPrice.Size = New System.Drawing.Size(88, 17)
+        Me.textPrice.TabIndex = 13
+        Me.textPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Dashboard
         '
@@ -234,10 +234,10 @@ Partial Class Dashboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Projeto_Login.My.Resources.Resources.dashboard
         Me.ClientSize = New System.Drawing.Size(900, 506)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.textUser)
+        Me.Controls.Add(Me.textPrice)
+        Me.Controls.Add(Me.textID)
+        Me.Controls.Add(Me.textBrand)
+        Me.Controls.Add(Me.textModel)
         Me.Controls.Add(Me.exitButton)
         Me.Controls.Add(Me.adminButton)
         Me.Controls.Add(Me.dataCars)
@@ -275,8 +275,8 @@ Partial Class Dashboard
     Friend WithEvents priceButton As PictureBox
     Friend WithEvents idButton As PictureBox
     Friend WithEvents adminButton As PictureBox
-    Friend WithEvents textUser As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents textModel As TextBox
+    Friend WithEvents textBrand As TextBox
+    Friend WithEvents textID As TextBox
+    Friend WithEvents textPrice As TextBox
 End Class

@@ -28,9 +28,11 @@ Partial Class Login
         Me.textPassword = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.loginButton = New System.Windows.Forms.PictureBox()
+        Me.imgEye = New System.Windows.Forms.PictureBox()
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.loginButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imgEye, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'exitButton
@@ -87,12 +89,24 @@ Partial Class Login
         Me.loginButton.TabIndex = 4
         Me.loginButton.TabStop = False
         '
+        'imgEye
+        '
+        Me.imgEye.BackColor = System.Drawing.Color.Transparent
+        Me.imgEye.Image = Global.Projeto_Login.My.Resources.Resources.view
+        Me.imgEye.Location = New System.Drawing.Point(272, 354)
+        Me.imgEye.Name = "imgEye"
+        Me.imgEye.Size = New System.Drawing.Size(22, 17)
+        Me.imgEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.imgEye.TabIndex = 5
+        Me.imgEye.TabStop = False
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Projeto_Login.My.Resources.Resources.backgroundMain
         Me.ClientSize = New System.Drawing.Size(440, 470)
+        Me.Controls.Add(Me.imgEye)
         Me.Controls.Add(Me.loginButton)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.textPassword)
@@ -105,6 +119,7 @@ Partial Class Login
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.loginButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imgEye, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -115,4 +130,5 @@ Partial Class Login
     Friend WithEvents textPassword As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents loginButton As PictureBox
+    Friend WithEvents imgEye As PictureBox
 End Class

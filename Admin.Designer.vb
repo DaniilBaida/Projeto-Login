@@ -55,7 +55,7 @@ Partial Class Admin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.Projeto_Login.My.Resources.Resources.dashboard
+        Me.BackgroundImage = Global.Projeto_Login.My.Resources.Resources.adminBackground
         Me.ClientSize = New System.Drawing.Size(900, 506)
         Me.Controls.Add(Me.exitButton)
         Me.Controls.Add(Me.backButton)

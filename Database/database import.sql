@@ -32,7 +32,8 @@ VALUES("1","1","ADMIN"),
 ("2","2","GUEST");
 
 INSERT INTO cars(model,brand,price)
-VALUES("TESLA","X",20000);
+VALUES("TESLA","X",20000),
+("BMW","X6",20700);
  
  
  select * From user;

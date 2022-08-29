@@ -10,25 +10,9 @@ Public Class Login
     Public password As String
     Public usertype As String
     Public sqlString1 As String
+    Dim picture As Resources.ResourceManager
 
-    Sub grelha()
-        Try
-            sqlConnection = New MySqlConnection("Server=localhost;Database=projlogin;Uid=root;Pwd=91984;")
-            sqlString1 = "Select *  from cars"
 
-            Dim dt As New DataTable
-            da = New MySqlDataAdapter(sqlString1, sqlConnection)
-            da.Fill(dt)
-            Dashboard.dataCars.DataSource = dt
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            sqlConnection.Close()
-            sqlConnection = Nothing
-            sqlConnection = Nothing
-        End Try
-    End Sub
 
     Sub resetInput()
         textUser.Text = ""
@@ -97,7 +81,7 @@ Public Class Login
                 Hide()
                 MessageBox.Show("LOGIN SUCCESSFULL", "AUTHENTICATION", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Dashboard.Show()
-                grelha()
+
                 If usertype = "ADMIN" Then
                     Dashboard.adminButton.Visible = "True"
                 Else
@@ -112,7 +96,7 @@ Public Class Login
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        picture = New Resources.ResourceManager("Projeto_Login.Resources", System.Reflection.Assembly.GetExecutingAssembly)
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles exitButton.Click
@@ -132,5 +116,9 @@ Public Class Login
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles loginButton.Click
         userLogin()
+    End Sub
+
+    Private Sub PictureBox2_Click_1(sender As Object, e As EventArgs) Handles imgEye.Click
+        imgEye.Image = picture.GetObject("invisible")
     End Sub
 End Class
