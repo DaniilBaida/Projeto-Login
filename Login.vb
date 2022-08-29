@@ -120,10 +120,7 @@ Public Class Login
     End Sub
 
     Private Sub imgEye_Click(sender As Object, e As EventArgs) Handles imgEye.Click
-
         a += 1
-
-
         If a Mod 2 = 0 Then
             imgEye.Image = picture.GetObject("invisible")
             textPassword.PasswordChar = ""

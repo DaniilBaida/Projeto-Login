@@ -34,8 +34,7 @@ VALUES("1","1","ADMIN"),
 INSERT INTO cars(model,brand,price)
 VALUES("TESLA","X",20000),
 ("BMW","X6",20700);
- 
- 
+
  select * From user;
  select * From loginlogs;
 

@@ -39,7 +39,7 @@ Partial Class Login
         '
         Me.exitButton.BackColor = System.Drawing.Color.Transparent
         Me.exitButton.Image = Global.Projeto_Login.My.Resources.Resources.powerButton
-        Me.exitButton.Location = New System.Drawing.Point(359, 12)
+        Me.exitButton.Location = New System.Drawing.Point(368, 4)
         Me.exitButton.Name = "exitButton"
         Me.exitButton.Size = New System.Drawing.Size(69, 69)
         Me.exitButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -50,7 +50,7 @@ Partial Class Login
         '
         Me.textUser.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.textUser.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.textUser.Location = New System.Drawing.Point(148, 288)
+        Me.textUser.Location = New System.Drawing.Point(148, 274)
         Me.textUser.Name = "textUser"
         Me.textUser.Size = New System.Drawing.Size(145, 17)
         Me.textUser.TabIndex = 1
@@ -60,7 +60,7 @@ Partial Class Login
         '
         Me.textPassword.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.textPassword.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.textPassword.Location = New System.Drawing.Point(148, 352)
+        Me.textPassword.Location = New System.Drawing.Point(148, 337)
         Me.textPassword.Name = "textPassword"
         Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.textPassword.Size = New System.Drawing.Size(145, 17)
@@ -71,7 +71,7 @@ Partial Class Login
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.Projeto_Login.My.Resources.Resources.info
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(2, 4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(69, 69)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -82,10 +82,10 @@ Partial Class Login
         '
         Me.loginButton.BackColor = System.Drawing.Color.Transparent
         Me.loginButton.Image = Global.Projeto_Login.My.Resources.Resources.login
-        Me.loginButton.Location = New System.Drawing.Point(148, 389)
+        Me.loginButton.Location = New System.Drawing.Point(138, 377)
         Me.loginButton.Name = "loginButton"
-        Me.loginButton.Size = New System.Drawing.Size(137, 47)
-        Me.loginButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.loginButton.Size = New System.Drawing.Size(165, 75)
+        Me.loginButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.loginButton.TabIndex = 4
         Me.loginButton.TabStop = False
         '
@@ -93,9 +93,9 @@ Partial Class Login
         '
         Me.imgEye.BackColor = System.Drawing.Color.Transparent
         Me.imgEye.Image = Global.Projeto_Login.My.Resources.Resources.view
-        Me.imgEye.Location = New System.Drawing.Point(272, 354)
+        Me.imgEye.Location = New System.Drawing.Point(272, 339)
         Me.imgEye.Name = "imgEye"
-        Me.imgEye.Size = New System.Drawing.Size(22, 17)
+        Me.imgEye.Size = New System.Drawing.Size(21, 20)
         Me.imgEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.imgEye.TabIndex = 5
         Me.imgEye.TabStop = False
