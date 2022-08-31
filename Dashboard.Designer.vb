@@ -33,7 +33,6 @@ Partial Class Dashboard
         Me.dataCars = New System.Windows.Forms.DataGridView()
         Me.modelButton = New System.Windows.Forms.PictureBox()
         Me.brandButton = New System.Windows.Forms.PictureBox()
-        Me.showCarsButton = New System.Windows.Forms.PictureBox()
         Me.priceButton = New System.Windows.Forms.PictureBox()
         Me.idButton = New System.Windows.Forms.PictureBox()
         Me.userLogo = New System.Windows.Forms.PictureBox()
@@ -48,7 +47,6 @@ Partial Class Dashboard
         CType(Me.dataCars, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.modelButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.brandButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.showCarsButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.priceButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.idButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.userLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,7 +126,7 @@ Partial Class Dashboard
         '
         Me.modelButton.BackColor = System.Drawing.Color.Transparent
         Me.modelButton.Image = Global.Projeto_Login.My.Resources.Resources.MODEL
-        Me.modelButton.Location = New System.Drawing.Point(84, 107)
+        Me.modelButton.Location = New System.Drawing.Point(441, 99)
         Me.modelButton.Name = "modelButton"
         Me.modelButton.Size = New System.Drawing.Size(137, 77)
         Me.modelButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -139,29 +137,18 @@ Partial Class Dashboard
         '
         Me.brandButton.BackColor = System.Drawing.Color.Transparent
         Me.brandButton.Image = Global.Projeto_Login.My.Resources.Resources.BRAND
-        Me.brandButton.Location = New System.Drawing.Point(201, 96)
+        Me.brandButton.Location = New System.Drawing.Point(322, 100)
         Me.brandButton.Name = "brandButton"
         Me.brandButton.Size = New System.Drawing.Size(137, 76)
         Me.brandButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.brandButton.TabIndex = 5
         Me.brandButton.TabStop = False
         '
-        'showCarsButton
-        '
-        Me.showCarsButton.BackColor = System.Drawing.Color.Transparent
-        Me.showCarsButton.Image = Global.Projeto_Login.My.Resources.Resources.SHOW_CARS
-        Me.showCarsButton.Location = New System.Drawing.Point(318, 96)
-        Me.showCarsButton.Name = "showCarsButton"
-        Me.showCarsButton.Size = New System.Drawing.Size(264, 119)
-        Me.showCarsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.showCarsButton.TabIndex = 6
-        Me.showCarsButton.TabStop = False
-        '
         'priceButton
         '
         Me.priceButton.BackColor = System.Drawing.Color.Transparent
         Me.priceButton.Image = Global.Projeto_Login.My.Resources.Resources.PRICE
-        Me.priceButton.Location = New System.Drawing.Point(679, 107)
+        Me.priceButton.Location = New System.Drawing.Point(559, 99)
         Me.priceButton.Name = "priceButton"
         Me.priceButton.Size = New System.Drawing.Size(137, 77)
         Me.priceButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -172,7 +159,7 @@ Partial Class Dashboard
         '
         Me.idButton.BackColor = System.Drawing.Color.Transparent
         Me.idButton.Image = Global.Projeto_Login.My.Resources.Resources.ID
-        Me.idButton.Location = New System.Drawing.Point(562, 96)
+        Me.idButton.Location = New System.Drawing.Point(204, 100)
         Me.idButton.Name = "idButton"
         Me.idButton.Size = New System.Drawing.Size(137, 76)
         Me.idButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -189,13 +176,12 @@ Partial Class Dashboard
         Me.userLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.userLogo.TabIndex = 9
         Me.userLogo.TabStop = False
-        Me.userLogo.Visible = False
         '
         'textModel
         '
         Me.textModel.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.textModel.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.textModel.Location = New System.Drawing.Point(108, 136)
+        Me.textModel.Location = New System.Drawing.Point(465, 128)
         Me.textModel.Name = "textModel"
         Me.textModel.Size = New System.Drawing.Size(88, 17)
         Me.textModel.TabIndex = 10
@@ -205,7 +191,7 @@ Partial Class Dashboard
         '
         Me.textBrand.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.textBrand.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.textBrand.Location = New System.Drawing.Point(226, 124)
+        Me.textBrand.Location = New System.Drawing.Point(347, 128)
         Me.textBrand.Name = "textBrand"
         Me.textBrand.Size = New System.Drawing.Size(88, 17)
         Me.textBrand.TabIndex = 11
@@ -215,7 +201,7 @@ Partial Class Dashboard
         '
         Me.textID.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.textID.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.textID.Location = New System.Drawing.Point(586, 124)
+        Me.textID.Location = New System.Drawing.Point(228, 128)
         Me.textID.Name = "textID"
         Me.textID.Size = New System.Drawing.Size(88, 17)
         Me.textID.TabIndex = 12
@@ -225,7 +211,7 @@ Partial Class Dashboard
         '
         Me.textPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.textPrice.Font = New System.Drawing.Font("MADE TOMMY", 10.0!)
-        Me.textPrice.Location = New System.Drawing.Point(703, 136)
+        Me.textPrice.Location = New System.Drawing.Point(583, 128)
         Me.textPrice.Name = "textPrice"
         Me.textPrice.Size = New System.Drawing.Size(88, 17)
         Me.textPrice.TabIndex = 13
@@ -239,9 +225,9 @@ Partial Class Dashboard
         Me.userIdentifier.ForeColor = System.Drawing.Color.White
         Me.userIdentifier.Location = New System.Drawing.Point(79, 28)
         Me.userIdentifier.Name = "userIdentifier"
-        Me.userIdentifier.Size = New System.Drawing.Size(76, 14)
+        Me.userIdentifier.Size = New System.Drawing.Size(103, 14)
         Me.userIdentifier.TabIndex = 15
-        Me.userIdentifier.Text = "EXAMPLE"
+        Me.userIdentifier.Text = "EXAMPLEEEE"
         '
         'adminButton
         '
@@ -270,7 +256,6 @@ Partial Class Dashboard
         Me.Controls.Add(Me.userLogo)
         Me.Controls.Add(Me.dataCars)
         Me.Controls.Add(Me.backButton)
-        Me.Controls.Add(Me.showCarsButton)
         Me.Controls.Add(Me.brandButton)
         Me.Controls.Add(Me.idButton)
         Me.Controls.Add(Me.priceButton)
@@ -285,7 +270,6 @@ Partial Class Dashboard
         CType(Me.dataCars, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.modelButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.brandButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.showCarsButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.priceButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.idButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.userLogo, System.ComponentModel.ISupportInitialize).EndInit()
@@ -300,7 +284,6 @@ Partial Class Dashboard
     Friend WithEvents dataCars As DataGridView
     Friend WithEvents modelButton As PictureBox
     Friend WithEvents brandButton As PictureBox
-    Friend WithEvents showCarsButton As PictureBox
     Friend WithEvents priceButton As PictureBox
     Friend WithEvents idButton As PictureBox
     Friend WithEvents userLogo As PictureBox

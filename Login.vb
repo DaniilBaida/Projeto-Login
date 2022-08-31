@@ -12,8 +12,40 @@ Public Class Login
     Public sqlString1 As String
     Dim picture As Resources.ResourceManager
     Dim a As Integer
+    Public connectionString = New MySqlConnection("Server=localhost;Database=projlogin;Uid=root;Pwd=91984;")
 
 
+
+    Public Sub refreshDB()
+        Try
+            sqlConnection = connectionString
+
+            sqlString1 = "SELECT * FROM user"
+
+
+
+            command = New MySqlCommand(sqlString1, sqlConnection)
+
+            sqlConnection.Open()
+
+            dr = command.ExecuteReader()
+
+            Do While dr.Read
+                user = dr("username")
+                password = dr("password")
+                usertype = dr("usertype")
+            Loop
+            dr.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Application.Exit()
+        Finally
+            sqlConnection.Close()
+            sqlConnection = Nothing
+            command = Nothing
+
+        End Try
+    End Sub
 
     Sub resetInput()
         textUser.Text = ""
@@ -25,7 +57,7 @@ Public Class Login
 
     Public Sub userLogin()
         Try
-            sqlConnection = New MySqlConnection("Server=localhost;Database=projlogin;Uid=root;Pwd=91984;")
+            sqlConnection = connectionString
 
             sqlString1 = "SELECT * FROM user WHERE username = @username and password = @password LIMIT 1"
 
@@ -44,7 +76,7 @@ Public Class Login
                 password = dr("password")
                 usertype = dr("usertype")
             Loop
-
+            dr.Close()
         Catch ex As Exception
             MsgBox(ex.Message)
             Application.Exit()
@@ -52,12 +84,13 @@ Public Class Login
             sqlConnection.Close()
             sqlConnection = Nothing
             command = Nothing
+
         End Try
 
         If textUser.Text <> "" And textPassword.Text <> "" Then
 
             Try
-                sqlConnection = New MySqlConnection("Server=localhost;Database=projlogin;Uid=root;Pwd=91984;")
+                sqlConnection = connectionString
 
                 sqlString1 = "INSERT INTO loginlogs(username, password, date) values (@username, @password, now())"
 
@@ -84,9 +117,9 @@ Public Class Login
                 Dashboard.Show()
 
                 If usertype = "ADMIN" Then
-                    Dashboard.userLogo.Visible = "True"
+                    Dashboard.adminButton.Visible = "True"
                 Else
-                    Dashboard.userLogo.Visible = "False"
+                    Dashboard.adminButton.Visible = "False"
                 End If
             Else
                 MessageBox.Show("WRONG USER/PASSWORD", "AUTHENTICATION", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -116,7 +149,10 @@ Public Class Login
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles loginButton.Click
+
         userLogin()
+
+
     End Sub
 
     Private Sub imgEye_Click(sender As Object, e As EventArgs) Handles imgEye.Click
