@@ -110,7 +110,8 @@ Public Class Admin
                     command = New MySqlCommand(sqlString1, sqlConnection)
                     command.Parameters.AddWithValue("@username", textUserName.Text)
                     command.Parameters.AddWithValue("@password", textUserPassword.Text)
-                    command.Parameters.AddWithValue("@usertype", chooseType.Text)
+                    command.Parameters.AddWithValue("@usertype", chooseType.SelectedItem
+                                                    )
                     sqlConnection.Open()
 
                     command.ExecuteNonQuery()
@@ -130,6 +131,8 @@ Public Class Admin
 
             Else
                 errorMain.Visible = True
+
+
             End If
         End If
     End Sub
@@ -155,6 +158,7 @@ Public Class Admin
                 da.Fill(dt)
                 dataUsers.DataSource = dt
                 errorUserId.Visible = False
+                errorMain.Visible = False
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
@@ -198,9 +202,9 @@ Public Class Admin
                 Do While dr.Read
                     textUserName.Text = dr("username")
                     textUserPassword.Text = dr("password")
-                    chooseType.SelectedText = dr("usertype")
+                    chooseType.SelectedItem = dr("usertype")
                 Loop
-
+                errorMain.Visible = False
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
