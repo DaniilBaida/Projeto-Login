@@ -7,6 +7,11 @@ Public Class Admin
     Public da As MySqlDataAdapter
     Public sqlString1 As String
 
+    Sub hideErrors()
+        errorUserId.Visible = False
+        errorMain.Visible = False
+    End Sub
+
 
     Private Sub backButton_Click(sender As Object, e As EventArgs) Handles backButton.Click
         Hide()
@@ -80,7 +85,7 @@ Public Class Admin
                 da = New MySqlDataAdapter("Select * from user", sqlConnection)
                 da.Fill(dt)
                 dataUsers.DataSource = dt
-
+                hideErrors()
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
@@ -120,7 +125,7 @@ Public Class Admin
                     da = New MySqlDataAdapter("Select * from user", sqlConnection)
                     da.Fill(dt)
                     dataUsers.DataSource = dt
-                    errorMain.Visible = False
+                    hideErrors()
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 Finally
@@ -157,8 +162,7 @@ Public Class Admin
                 da = New MySqlDataAdapter("Select * from user", sqlConnection)
                 da.Fill(dt)
                 dataUsers.DataSource = dt
-                errorUserId.Visible = False
-                errorMain.Visible = False
+                hideErrors()
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
@@ -204,7 +208,7 @@ Public Class Admin
                     textUserPassword.Text = dr("password")
                     chooseType.SelectedItem = dr("usertype")
                 Loop
-                errorMain.Visible = False
+                hideErrors()
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
