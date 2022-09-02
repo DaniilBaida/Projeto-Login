@@ -27,6 +27,7 @@ Partial Class Admin
         Me.exitButton = New System.Windows.Forms.PictureBox()
         Me.mainTab = New System.Windows.Forms.TabControl()
         Me.tabCars = New System.Windows.Forms.TabPage()
+        Me.carPriceText = New System.Windows.Forms.TextBox()
         Me.dataCars = New System.Windows.Forms.DataGridView()
         Me.carClear = New System.Windows.Forms.Button()
         Me.carDelete = New System.Windows.Forms.Button()
@@ -54,7 +55,6 @@ Partial Class Admin
         Me.textUserId = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ADD = New System.Windows.Forms.Button()
-        Me.carPriceText = New System.Windows.Forms.TextBox()
         CType(Me.backButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mainTab.SuspendLayout()
@@ -121,6 +121,14 @@ Partial Class Admin
         Me.tabCars.Size = New System.Drawing.Size(665, 366)
         Me.tabCars.TabIndex = 1
         Me.tabCars.Text = "ADD CARS"
+        '
+        'carPriceText
+        '
+        Me.carPriceText.Location = New System.Drawing.Point(48, 165)
+        Me.carPriceText.Name = "carPriceText"
+        Me.carPriceText.Size = New System.Drawing.Size(86, 21)
+        Me.carPriceText.TabIndex = 29
+        Me.carPriceText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'dataCars
         '
@@ -418,14 +426,6 @@ Partial Class Admin
         Me.ADD.TabIndex = 0
         Me.ADD.Text = "ADD"
         Me.ADD.UseVisualStyleBackColor = False
-        '
-        'carPriceText
-        '
-        Me.carPriceText.Location = New System.Drawing.Point(48, 165)
-        Me.carPriceText.Name = "carPriceText"
-        Me.carPriceText.Size = New System.Drawing.Size(86, 21)
-        Me.carPriceText.TabIndex = 29
-        Me.carPriceText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Admin
         '

@@ -9,6 +9,10 @@ Public Class Admin
     Dim user
 
     Sub clearText()
+        carIdText.Text = ""
+        carBrandText.Text = ""
+        carModelText.Text = ""
+        carPriceText.Text = ""
         textUserId.Text = ""
         textUserName.Text = ""
         textUserPassword.Text = ""
@@ -286,7 +290,7 @@ Public Class Admin
 
         Else
 
-
+            clearText()
 
         End If
     End Sub
@@ -300,5 +304,165 @@ Public Class Admin
 
     End Sub
 
+    Private Sub carIdText_TextChanged(sender As Object, e As EventArgs) Handles carIdText.TextChanged
+        If carIdText.Text <> "" Then
+            Try
 
+                sqlConnection = Login.connectionString
+                sqlString1 = "Select * from cars Where id=@id"
+
+
+
+
+                command = New MySqlCommand(sqlString1, sqlConnection)
+                command.Parameters.AddWithValue("@id", carIdText.Text)
+                sqlConnection.Open()
+
+                dr = command.ExecuteReader()
+
+                Do While dr.Read
+                    carBrandText.Text = dr("brand")
+                    carModelText.Text = dr("model")
+                    carPriceText.Text = dr("price")
+
+                Loop
+                hideErrors()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                sqlConnection.Close()
+                sqlConnection = Nothing
+                sqlConnection = Nothing
+                dr.Close()
+            End Try
+
+        Else
+            clearText()
+
+
+        End If
+    End Sub
+
+    Private Sub carClear_Click(sender As Object, e As EventArgs) Handles carClear.Click
+        clearText()
+
+    End Sub
+
+    Private Sub carUpdate_Click(sender As Object, e As EventArgs) Handles carUpdate.Click
+        If carBrandText.Text <> "" And carModelText.Text <> "" And carPriceText.Text <> "" Then
+
+            Try
+
+                sqlConnection = Login.connectionString
+                sqlString1 = "Update cars set brand=@brand, model=@model, price=@price WHERE id=@id"
+
+
+
+
+                command = New MySqlCommand(sqlString1, sqlConnection)
+                command.Parameters.AddWithValue("@id", carIdText.Text)
+                command.Parameters.AddWithValue("@brand", carBrandText.Text)
+                command.Parameters.AddWithValue("@model", carModelText.Text)
+                command.Parameters.AddWithValue("@price", carPriceText.Text)
+
+                sqlConnection.Open()
+
+                command.ExecuteNonQuery()
+
+                Dim dt As New DataTable
+                da = New MySqlDataAdapter("Select * from cars", sqlConnection)
+                da.Fill(dt)
+                dataCars.DataSource = dt
+                hideErrors()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                sqlConnection.Close()
+                sqlConnection = Nothing
+                sqlConnection = Nothing
+            End Try
+        End If
+    End Sub
+
+    Private Sub carAdd_Click(sender As Object, e As EventArgs) Handles carAdd.Click
+
+
+        Login.refreshDB()
+        If carBrandText.Text <> "" And carModelText.Text <> "" And carPriceText.Text <> "" Then
+
+            Try
+
+                sqlConnection = Login.connectionString
+                sqlString1 = "Insert into cars (brand, model, price) values (@brand, @model, @price)"
+
+
+
+
+                command = New MySqlCommand(sqlString1, sqlConnection)
+                command.Parameters.AddWithValue("@brand", carBrandText.Text)
+                command.Parameters.AddWithValue("@model", carModelText.Text)
+                command.Parameters.AddWithValue("@price", carPriceText.Text)
+
+                sqlConnection.Open()
+
+                command.ExecuteNonQuery()
+
+                Dim dt As New DataTable
+                da = New MySqlDataAdapter("Select * from cars", sqlConnection)
+                da.Fill(dt)
+                dataCars.DataSource = dt
+                hideErrors()
+                clearText()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                sqlConnection.Close()
+                sqlConnection = Nothing
+                sqlConnection = Nothing
+            End Try
+
+
+
+
+        End If
+
+    End Sub
+
+    Private Sub carDelete_Click(sender As Object, e As EventArgs) Handles carDelete.Click
+        If carIdText.Text <> "" Then
+            Try
+
+                sqlConnection = Login.connectionString
+                sqlString1 = "Delete from cars Where id=@id"
+
+
+
+
+                command = New MySqlCommand(sqlString1, sqlConnection)
+                command.Parameters.AddWithValue("@id", carIdText.Text)
+                sqlConnection.Open()
+
+                command.ExecuteNonQuery()
+
+                Dim dt As New DataTable
+                da = New MySqlDataAdapter("Select * from cars", sqlConnection)
+                da.Fill(dt)
+                dataCars.DataSource = dt
+                hideErrors()
+                clearText()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                sqlConnection.Close()
+                sqlConnection = Nothing
+                sqlConnection = Nothing
+            End Try
+
+        Else
+
+
+
+        End If
+    End Sub
 End Class
