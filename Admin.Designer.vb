@@ -27,9 +27,21 @@ Partial Class Admin
         Me.exitButton = New System.Windows.Forms.PictureBox()
         Me.mainTab = New System.Windows.Forms.TabControl()
         Me.tabCars = New System.Windows.Forms.TabPage()
+        Me.dataCars = New System.Windows.Forms.DataGridView()
+        Me.carClear = New System.Windows.Forms.Button()
+        Me.carDelete = New System.Windows.Forms.Button()
+        Me.carUpdate = New System.Windows.Forms.Button()
+        Me.carModelText = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.carBrandText = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.carIdText = New System.Windows.Forms.TextBox()
+        Me.TexdtBox = New System.Windows.Forms.Label()
+        Me.carAdd = New System.Windows.Forms.Button()
         Me.tabUsers = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.errorMain = New System.Windows.Forms.Label()
-        Me.errorUserId = New System.Windows.Forms.Label()
         Me.deleteButton = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.chooseType = New System.Windows.Forms.ComboBox()
@@ -42,9 +54,12 @@ Partial Class Admin
         Me.textUserId = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ADD = New System.Windows.Forms.Button()
+        Me.carPriceText = New System.Windows.Forms.TextBox()
         CType(Me.backButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mainTab.SuspendLayout()
+        Me.tabCars.SuspendLayout()
+        CType(Me.dataCars, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabUsers.SuspendLayout()
         CType(Me.dataUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -84,6 +99,20 @@ Partial Class Admin
         '
         'tabCars
         '
+        Me.tabCars.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.tabCars.Controls.Add(Me.carPriceText)
+        Me.tabCars.Controls.Add(Me.dataCars)
+        Me.tabCars.Controls.Add(Me.carClear)
+        Me.tabCars.Controls.Add(Me.carDelete)
+        Me.tabCars.Controls.Add(Me.carUpdate)
+        Me.tabCars.Controls.Add(Me.carModelText)
+        Me.tabCars.Controls.Add(Me.Label5)
+        Me.tabCars.Controls.Add(Me.Label6)
+        Me.tabCars.Controls.Add(Me.carBrandText)
+        Me.tabCars.Controls.Add(Me.Label7)
+        Me.tabCars.Controls.Add(Me.carIdText)
+        Me.tabCars.Controls.Add(Me.TexdtBox)
+        Me.tabCars.Controls.Add(Me.carAdd)
         Me.tabCars.Font = New System.Drawing.Font("MADE TOMMY", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tabCars.ForeColor = System.Drawing.SystemColors.ControlText
         Me.tabCars.Location = New System.Drawing.Point(4, 22)
@@ -92,13 +121,137 @@ Partial Class Admin
         Me.tabCars.Size = New System.Drawing.Size(665, 366)
         Me.tabCars.TabIndex = 1
         Me.tabCars.Text = "ADD CARS"
-        Me.tabCars.UseVisualStyleBackColor = True
+        '
+        'dataCars
+        '
+        Me.dataCars.AllowUserToAddRows = False
+        Me.dataCars.AllowUserToDeleteRows = False
+        Me.dataCars.AllowUserToResizeColumns = False
+        Me.dataCars.AllowUserToResizeRows = False
+        Me.dataCars.BackgroundColor = System.Drawing.Color.White
+        Me.dataCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dataCars.Location = New System.Drawing.Point(182, 40)
+        Me.dataCars.Name = "dataCars"
+        Me.dataCars.ReadOnly = True
+        Me.dataCars.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dataCars.Size = New System.Drawing.Size(445, 273)
+        Me.dataCars.TabIndex = 28
+        '
+        'carClear
+        '
+        Me.carClear.BackColor = System.Drawing.Color.Red
+        Me.carClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.carClear.ForeColor = System.Drawing.Color.White
+        Me.carClear.Location = New System.Drawing.Point(48, 306)
+        Me.carClear.Name = "carClear"
+        Me.carClear.Size = New System.Drawing.Size(86, 23)
+        Me.carClear.TabIndex = 27
+        Me.carClear.Text = "CLEAR TEXT"
+        Me.carClear.UseVisualStyleBackColor = False
+        '
+        'carDelete
+        '
+        Me.carDelete.BackColor = System.Drawing.Color.Red
+        Me.carDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.carDelete.ForeColor = System.Drawing.Color.White
+        Me.carDelete.Location = New System.Drawing.Point(47, 273)
+        Me.carDelete.Name = "carDelete"
+        Me.carDelete.Size = New System.Drawing.Size(86, 23)
+        Me.carDelete.TabIndex = 26
+        Me.carDelete.Text = "DELETE"
+        Me.carDelete.UseVisualStyleBackColor = False
+        '
+        'carUpdate
+        '
+        Me.carUpdate.BackColor = System.Drawing.Color.SpringGreen
+        Me.carUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.carUpdate.Location = New System.Drawing.Point(47, 240)
+        Me.carUpdate.Name = "carUpdate"
+        Me.carUpdate.Size = New System.Drawing.Size(86, 23)
+        Me.carUpdate.TabIndex = 25
+        Me.carUpdate.Text = "UPDATE"
+        Me.carUpdate.UseVisualStyleBackColor = False
+        '
+        'carModelText
+        '
+        Me.carModelText.Location = New System.Drawing.Point(47, 125)
+        Me.carModelText.Name = "carModelText"
+        Me.carModelText.Size = New System.Drawing.Size(86, 21)
+        Me.carModelText.TabIndex = 23
+        Me.carModelText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(56, 109)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(68, 13)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "CAR MODEL"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(57, 149)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(62, 13)
+        Me.Label6.TabIndex = 21
+        Me.Label6.Text = "CAR PRICE"
+        '
+        'carBrandText
+        '
+        Me.carBrandText.Location = New System.Drawing.Point(47, 85)
+        Me.carBrandText.Name = "carBrandText"
+        Me.carBrandText.Size = New System.Drawing.Size(86, 21)
+        Me.carBrandText.TabIndex = 20
+        Me.carBrandText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(56, 69)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(68, 13)
+        Me.Label7.TabIndex = 19
+        Me.Label7.Text = "CAR BRAND"
+        '
+        'carIdText
+        '
+        Me.carIdText.Location = New System.Drawing.Point(47, 45)
+        Me.carIdText.Name = "carIdText"
+        Me.carIdText.Size = New System.Drawing.Size(86, 21)
+        Me.carIdText.TabIndex = 18
+        Me.carIdText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TexdtBox
+        '
+        Me.TexdtBox.AutoSize = True
+        Me.TexdtBox.ForeColor = System.Drawing.Color.White
+        Me.TexdtBox.Location = New System.Drawing.Point(69, 29)
+        Me.TexdtBox.Name = "TexdtBox"
+        Me.TexdtBox.Size = New System.Drawing.Size(42, 13)
+        Me.TexdtBox.TabIndex = 17
+        Me.TexdtBox.Text = "CAR ID"
+        '
+        'carAdd
+        '
+        Me.carAdd.BackColor = System.Drawing.Color.SpringGreen
+        Me.carAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.carAdd.Location = New System.Drawing.Point(47, 205)
+        Me.carAdd.Name = "carAdd"
+        Me.carAdd.Size = New System.Drawing.Size(86, 23)
+        Me.carAdd.TabIndex = 16
+        Me.carAdd.Text = "ADD"
+        Me.carAdd.UseVisualStyleBackColor = False
         '
         'tabUsers
         '
         Me.tabUsers.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.tabUsers.Controls.Add(Me.Button2)
         Me.tabUsers.Controls.Add(Me.errorMain)
-        Me.tabUsers.Controls.Add(Me.errorUserId)
         Me.tabUsers.Controls.Add(Me.deleteButton)
         Me.tabUsers.Controls.Add(Me.Button1)
         Me.tabUsers.Controls.Add(Me.chooseType)
@@ -119,6 +272,18 @@ Partial Class Admin
         Me.tabUsers.TabIndex = 0
         Me.tabUsers.Text = "ADD USERS"
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Red
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(46, 303)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(86, 23)
+        Me.Button2.TabIndex = 15
+        Me.Button2.Text = "CLEAR TEXT"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'errorMain
         '
         Me.errorMain.AutoSize = True
@@ -132,24 +297,12 @@ Partial Class Admin
         Me.errorMain.Text = "USERNAME ALREADY EXIST IN DATABASE"
         Me.errorMain.Visible = False
         '
-        'errorUserId
-        '
-        Me.errorUserId.AutoSize = True
-        Me.errorUserId.BackColor = System.Drawing.Color.Red
-        Me.errorUserId.ForeColor = System.Drawing.Color.White
-        Me.errorUserId.Location = New System.Drawing.Point(6, 32)
-        Me.errorUserId.Name = "errorUserId"
-        Me.errorUserId.Size = New System.Drawing.Size(159, 13)
-        Me.errorUserId.TabIndex = 13
-        Me.errorUserId.Text = "INSERT A VALUE INTO USER ID"
-        Me.errorUserId.Visible = False
-        '
         'deleteButton
         '
         Me.deleteButton.BackColor = System.Drawing.Color.Red
         Me.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.deleteButton.ForeColor = System.Drawing.Color.White
-        Me.deleteButton.Location = New System.Drawing.Point(45, 296)
+        Me.deleteButton.Location = New System.Drawing.Point(45, 270)
         Me.deleteButton.Name = "deleteButton"
         Me.deleteButton.Size = New System.Drawing.Size(86, 23)
         Me.deleteButton.TabIndex = 12
@@ -160,7 +313,7 @@ Partial Class Admin
         '
         Me.Button1.BackColor = System.Drawing.Color.SpringGreen
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Location = New System.Drawing.Point(45, 263)
+        Me.Button1.Location = New System.Drawing.Point(45, 237)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(86, 23)
         Me.Button1.TabIndex = 11
@@ -171,14 +324,14 @@ Partial Class Admin
         '
         Me.chooseType.FormattingEnabled = True
         Me.chooseType.Items.AddRange(New Object() {"GUEST", "ADMIN"})
-        Me.chooseType.Location = New System.Drawing.Point(43, 183)
+        Me.chooseType.Location = New System.Drawing.Point(43, 157)
         Me.chooseType.Name = "chooseType"
         Me.chooseType.Size = New System.Drawing.Size(88, 21)
         Me.chooseType.TabIndex = 10
         '
         'textUserPassword
         '
-        Me.textUserPassword.Location = New System.Drawing.Point(45, 143)
+        Me.textUserPassword.Location = New System.Drawing.Point(45, 117)
         Me.textUserPassword.Name = "textUserPassword"
         Me.textUserPassword.Size = New System.Drawing.Size(86, 21)
         Me.textUserPassword.TabIndex = 9
@@ -188,7 +341,7 @@ Partial Class Admin
         '
         Me.Label4.AutoSize = True
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(42, 127)
+        Me.Label4.Location = New System.Drawing.Point(42, 101)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(95, 13)
         Me.Label4.TabIndex = 8
@@ -198,7 +351,7 @@ Partial Class Admin
         '
         Me.Label3.AutoSize = True
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(55, 167)
+        Me.Label3.Location = New System.Drawing.Point(55, 141)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 13)
         Me.Label3.TabIndex = 6
@@ -216,12 +369,12 @@ Partial Class Admin
         Me.dataUsers.Name = "dataUsers"
         Me.dataUsers.ReadOnly = True
         Me.dataUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dataUsers.Size = New System.Drawing.Size(435, 273)
+        Me.dataUsers.Size = New System.Drawing.Size(440, 273)
         Me.dataUsers.TabIndex = 5
         '
         'textUserName
         '
-        Me.textUserName.Location = New System.Drawing.Point(45, 103)
+        Me.textUserName.Location = New System.Drawing.Point(45, 77)
         Me.textUserName.Name = "textUserName"
         Me.textUserName.Size = New System.Drawing.Size(86, 21)
         Me.textUserName.TabIndex = 4
@@ -231,7 +384,7 @@ Partial Class Admin
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(55, 87)
+        Me.Label2.Location = New System.Drawing.Point(55, 61)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 13)
         Me.Label2.TabIndex = 3
@@ -239,7 +392,7 @@ Partial Class Admin
         '
         'textUserId
         '
-        Me.textUserId.Location = New System.Drawing.Point(45, 63)
+        Me.textUserId.Location = New System.Drawing.Point(45, 37)
         Me.textUserId.Name = "textUserId"
         Me.textUserId.Size = New System.Drawing.Size(86, 21)
         Me.textUserId.TabIndex = 2
@@ -249,7 +402,7 @@ Partial Class Admin
         '
         Me.Label1.AutoSize = True
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(64, 47)
+        Me.Label1.Location = New System.Drawing.Point(64, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(46, 13)
         Me.Label1.TabIndex = 1
@@ -259,12 +412,20 @@ Partial Class Admin
         '
         Me.ADD.BackColor = System.Drawing.Color.SpringGreen
         Me.ADD.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.ADD.Location = New System.Drawing.Point(45, 228)
+        Me.ADD.Location = New System.Drawing.Point(45, 202)
         Me.ADD.Name = "ADD"
         Me.ADD.Size = New System.Drawing.Size(86, 23)
         Me.ADD.TabIndex = 0
         Me.ADD.Text = "ADD"
         Me.ADD.UseVisualStyleBackColor = False
+        '
+        'carPriceText
+        '
+        Me.carPriceText.Location = New System.Drawing.Point(48, 165)
+        Me.carPriceText.Name = "carPriceText"
+        Me.carPriceText.Size = New System.Drawing.Size(86, 21)
+        Me.carPriceText.TabIndex = 29
+        Me.carPriceText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Admin
         '
@@ -283,6 +444,9 @@ Partial Class Admin
         CType(Me.backButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.exitButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.mainTab.ResumeLayout(False)
+        Me.tabCars.ResumeLayout(False)
+        Me.tabCars.PerformLayout()
+        CType(Me.dataCars, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabUsers.ResumeLayout(False)
         Me.tabUsers.PerformLayout()
         CType(Me.dataUsers, System.ComponentModel.ISupportInitialize).EndInit()
@@ -307,6 +471,19 @@ Partial Class Admin
     Friend WithEvents chooseType As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents deleteButton As Button
-    Friend WithEvents errorUserId As Label
     Friend WithEvents errorMain As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents carClear As Button
+    Friend WithEvents carDelete As Button
+    Friend WithEvents carUpdate As Button
+    Friend WithEvents carModelText As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents carBrandText As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents carIdText As TextBox
+    Friend WithEvents TexdtBox As Label
+    Friend WithEvents carAdd As Button
+    Friend WithEvents dataCars As DataGridView
+    Friend WithEvents carPriceText As TextBox
 End Class

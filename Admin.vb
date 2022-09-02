@@ -6,9 +6,19 @@ Public Class Admin
     Public dr As MySqlDataReader
     Public da As MySqlDataAdapter
     Public sqlString1 As String
+    Dim user
+
+    Sub clearText()
+        textUserId.Text = ""
+        textUserName.Text = ""
+        textUserPassword.Text = ""
+        chooseType.SelectedIndex = -1
+        errorMain.Visible = False
+    End Sub
+
 
     Sub hideErrors()
-        errorUserId.Visible = False
+
         errorMain.Visible = False
     End Sub
 
@@ -16,6 +26,9 @@ Public Class Admin
     Private Sub backButton_Click(sender As Object, e As EventArgs) Handles backButton.Click
         Hide()
         Dashboard.Show()
+        clearText()
+
+        Login.refreshDB()
     End Sub
 
     Private Sub exitButton_Click(sender As Object, e As EventArgs) Handles exitButton.Click
@@ -23,6 +36,8 @@ Public Class Admin
     End Sub
 
     Private Sub Admin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dataCars.DataSource = Dashboard.dataCars
+        Login.refreshDB()
         tabUsers.BackColor = Color.FromArgb(0, 142, 204)
         tabCars.BackColor = Color.FromArgb(0, 142, 204)
 
@@ -51,7 +66,30 @@ Public Class Admin
 
         End Try
 
+        Try
 
+            sqlConnection = Login.connectionString
+            sqlString1 = "SELECT *  FROM cars"
+
+
+
+            command = New MySqlCommand(sqlString1, sqlConnection)
+            sqlConnection.Open()
+
+
+            Dim dt As New DataTable
+            da = New MySqlDataAdapter(sqlString1, sqlConnection)
+            da.Fill(dt)
+            dataCars.DataSource = dt
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            sqlConnection.Close()
+            sqlConnection = Nothing
+
+
+        End Try
     End Sub
 
 
@@ -63,7 +101,9 @@ Public Class Admin
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
         If textUserName.Text <> "" And textUserPassword.Text <> "" And chooseType.SelectedItem <> "" Then
+
             Try
 
                 sqlConnection = Login.connectionString
@@ -86,6 +126,7 @@ Public Class Admin
                 da.Fill(dt)
                 dataUsers.DataSource = dt
                 hideErrors()
+
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
@@ -98,12 +139,38 @@ Public Class Admin
 
 
     Private Sub ADD_Click(sender As Object, e As EventArgs) Handles ADD.Click
+        Try
 
+            sqlConnection = Login.connectionString
+            sqlString1 = "Select * from user where username = @username"
+
+
+
+
+            command = New MySqlCommand(sqlString1, sqlConnection)
+            command.Parameters.AddWithValue("@username", textUserName.Text)
+
+            sqlConnection.Open()
+
+            command.ExecuteNonQuery()
+
+            dr = command.ExecuteReader()
+
+            Do While dr.Read
+                user = dr("username")
+            Loop
+            hideErrors()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            sqlConnection.Close()
+            sqlConnection = Nothing
+            sqlConnection = Nothing
+        End Try
+
+        Login.refreshDB()
         If textUserName.Text <> "" And textUserPassword.Text <> "" And chooseType.SelectedItem <> "" Then
-            Login.refreshDB()
-
-            If textUserName.Text <> Login.user Then
-
+            If textUserName.Text <> user Then
                 Try
 
                     sqlConnection = Login.connectionString
@@ -116,7 +183,7 @@ Public Class Admin
                     command.Parameters.AddWithValue("@username", textUserName.Text)
                     command.Parameters.AddWithValue("@password", textUserPassword.Text)
                     command.Parameters.AddWithValue("@usertype", chooseType.SelectedItem
-                                                    )
+                                                        )
                     sqlConnection.Open()
 
                     command.ExecuteNonQuery()
@@ -126,6 +193,7 @@ Public Class Admin
                     da.Fill(dt)
                     dataUsers.DataSource = dt
                     hideErrors()
+                    clearText()
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 Finally
@@ -138,8 +206,11 @@ Public Class Admin
                 errorMain.Visible = True
 
 
+
             End If
         End If
+
+
     End Sub
 
     Private Sub deleteButton_Click(sender As Object, e As EventArgs) Handles deleteButton.Click
@@ -163,6 +234,7 @@ Public Class Admin
                 da.Fill(dt)
                 dataUsers.DataSource = dt
                 hideErrors()
+                clearText()
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
@@ -172,20 +244,14 @@ Public Class Admin
             End Try
 
         Else
-            errorUserId.Visible = True
+
 
 
         End If
     End Sub
 
 
-    Private Sub textUserName_TextChanged(sender As Object, e As EventArgs) Handles textUserName.TextChanged
-        If textUserName.Text <> Login.user And textUserName.Text <> "" Then
-            textUserId.Enabled = False
-        Else
-            textUserId.Enabled = True
-        End If
-    End Sub
+
 
     Private Sub textUserId_TextChanged(sender As Object, e As EventArgs) Handles textUserId.TextChanged
         If textUserId.Text <> "" Then
@@ -219,9 +285,20 @@ Public Class Admin
             End Try
 
         Else
-            errorUserId.Visible = True
+
 
 
         End If
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        clearText()
+
+    End Sub
+
+    Private Sub tabUsers_Click(sender As Object, e As EventArgs) Handles tabUsers.Click
+
+    End Sub
+
+
 End Class
